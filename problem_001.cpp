@@ -127,12 +127,13 @@ bool twoSum(int* numList, int sizeList, int k)
     std::map<int, int> hash_table;
     for (int i = 0; i <= sizeList; i++)
     {
-        hash_table[ numList[i] ] = numList[i];
         std::map<int, int>::iterator it;
         int complement = k - numList[i];
         it = hash_table.find(complement);
         if (it != hash_table.end())
             return true;
+        else
+            hash_table[ numList[i] ] = numList[i];
     }
     return false;
 }
@@ -156,3 +157,56 @@ int main()
     std::cout << "Result: " << twoSum(myarray, size, random_number) << std::endl;
     return 0;
 }
+
+
+/****************************************************
+            One-pass Hash Table solution
+                Leetcode version            
+
+Time complexity: O(n). We traverse the list 
+containing n elements once. Since the 
+hash table reduces the lookup time to O(1), the 
+overall time complexity is O(n).
+
+Space complexity: O(n). The extra space 
+required depends on the number of items stored in 
+the hash table, which stores exactly n elements.
+****************************************************/
+
+// #include <vector>
+// #include <map>
+// #include <iostream>
+
+// std::vector<int> twoSum(std::vector<int>& nums, int target) {
+//     std::map<int, int> myMap;
+//     std::vector<int> result;
+//     for (int i = 0; i < nums.size(); i++)
+//     {
+//         std::map<int, int>::iterator it;
+//         int complement = target - nums[i];
+//         it = myMap.find(complement);
+//         if (it != myMap.end())
+//             return {it->second, i};
+//         else 
+//             myMap.insert({nums[i], i});
+//     }
+//     return result;
+// }
+
+// void print(std::vector<int> avect)
+// {
+//     std::cout << "[";
+//     for (int i = 0; i < avect.size() - 1; i++)
+//     {
+//         std::cout << avect[i] << " ";
+//     }
+//     std::cout << avect[avect.size() - 1];
+//     std::cout << "]\n";
+// }
+
+// int main()
+// {
+    
+//     std::vector<int> myvect = {1, 3, 3};
+//     print(twoSum(myvect, 6));
+// }
