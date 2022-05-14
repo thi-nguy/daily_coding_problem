@@ -32,27 +32,6 @@ only constant space is used
 //     return false;
 // }
 
-// int main()
-// {
-//     int size;
-//     int random_number;
-
-//     std::cout << "How many numbers do you want to enter?" << std::endl;
-//     std::cin >> size;
-
-//     int myarray[size];
-//     std::cout << "Enter " << size << " numbers" << std::endl;
-//     for (int i = 0; i < size; i++)
-//         std::cin >> myarray[i];
-    
-//     std::cout << "Enter a sum: " << std::endl;
-//     std::cin >> random_number;
-
-//     std::cout << "Result: " << twoSum(myarray, size, random_number) << std::endl;
-//     return 0;
-// }
-
-
 /****************************************************
             Two-pass Hash Table solution            
  
@@ -84,26 +63,6 @@ the hash table, which stores exactly n elements.
 //             return true;
 //     }
 //     return false;
-// }
-
-// int main()
-// {
-//     int size;
-//     int random_number;
-
-//     std::cout << "How many numbers do you want to enter?" << std::endl;
-//     std::cin >> size;
-
-//     int myarray[size];
-//     std::cout << "Enter " << size << " numbers" << std::endl;
-//     for (int i = 0; i < size; i++)
-//         std::cin >> myarray[i];
-    
-//     std::cout << "Enter a sum: " << std::endl;
-//     std::cin >> random_number;
-
-//     std::cout << "Result: " << twoSum(myarray, size, random_number) << std::endl;
-//     return 0;
 // }
 
 /****************************************************
@@ -138,6 +97,9 @@ bool twoSum(int* numList, int sizeList, int k)
     return false;
 }
 
+/****************************************************
+            Main.cpp
+****************************************************/
 int main()
 {
     int size;

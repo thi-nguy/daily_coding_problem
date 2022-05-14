@@ -1,16 +1,90 @@
 /******************************************************************
-This problem was asked by Google.
-A unival tree (which stands for "universal value") is a tree where all nodes under it have the same value.
-Given the root to a binary tree, count the number of unival subtrees.
-For example, the following tree has 5 unival subtrees:
+This problem was asked by Uber.
 
-   0
-  / \
- 1   0
-    / \
-   1   0
-  / \
- 1   1
+Given an array of integers, return a new array such that each 
+element at index i of the new array is the product of all the 
+numbers in the original array except the one at i.
 
-Easy
+For example, if our input was [1, 2, 3, 4, 5], the expected output 
+would be [120, 60, 40, 30, 24]. If our input was [3, 2, 1], 
+the expected output would be [2, 3, 6].
+
+Follow-up: what if you can't use division?
+
+Hard
 ******************************************************************/
+
+/****************************************************
+                    Naive solution                 
+Time: O(n^2)                                      
+Space: O(1)    
+****************************************************/
+// #include <vector>
+// #include <iostream>
+
+// std::vector<int> productExceptSelf(std::vector<int> nums)
+// {
+//    std::vector <int> result;
+//    for (unsigned long i = 0; i < nums.size(); i++)
+//    {
+//       int item = 1;
+//       for (unsigned long j = 0; j < nums.size(); j++)
+//       {
+//          if (j != i)
+//             item *= nums[j];
+//       }
+//       result.push_back(item);
+//    }
+//    return result;
+// }
+
+/****************************************************
+             Division Operation solution                 
+Time:                                       
+Space:     
+****************************************************/
+#include <vector>
+#include <iostream>
+
+std::vector<int> productExceptSelf(std::vector<int> nums)
+{
+   std::vector <int> result;
+   return result;
+}
+
+
+/****************************************************
+            main.cpp & print.cpp
+****************************************************/
+
+void print(std::vector<int> avect)
+{
+    std::cout << "[";
+    for (unsigned long i = 0; i < avect.size() - 1; i++)
+    {
+        std::cout << avect[i] << " ";
+    }
+    std::cout << avect[avect.size() - 1];
+    std::cout << "]\n";
+}
+
+int main()
+{
+   int size;
+
+   std::cout << "How many numbers do you want to enter?" << std::endl;
+   std::cin >> size;
+
+   std::vector<int> myvect;
+   std::cout << "Enter " << size << " numbers" << std::endl;
+   for (int i = 0; i < size; i++)
+   {
+      int item;
+      std::cin >> item;
+      myvect.push_back(item);
+   }
+   std::cout << "Your array is: ";
+   print(myvect);
+   print( productExceptSelf(myvect) );
+   return 0;
+}
