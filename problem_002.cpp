@@ -39,9 +39,9 @@ Space: O(1)
 // }
 
 /****************************************************
-             Division Operation solution                 
-Time:                                       
-Space:     
+             Division Operation solution
+Time: O(N)                                      
+Space: O(N)  
 ****************************************************/
 #include <vector>
 #include <iostream>
@@ -49,14 +49,75 @@ Space:
 std::vector<int> productExceptSelf(std::vector<int> nums)
 {
    std::vector <int> result;
+   long product = 1;
+   int countZero = 0;
+   for (unsigned long i = 0; i < nums.size(); i++)
+   {
+      if (nums[i] != 0)
+         product *= nums[i];
+      else
+         countZero += 1;
+   }
+   for (unsigned long i = 0; i < nums.size(); i++)
+   {
+      if (countZero == 1)
+      {
+         if (nums[i] == 0)
+            result.push_back(product);
+         else
+            result.push_back(0);
+      }
+      else if (countZero > 1)
+         result.push_back(0);
+      else
+      {
+         int item = product / nums[i];
+         result.push_back(item);
+      }
+   }
    return result;
 }
 
+/****************************************************
+         Not Using Division Operation solution
+Time: O(N)                                      
+Space: O(N)   
+****************************************************/
+// #include <vector>
+// #include <iostream>
+
+// std::vector<int> productExceptSelf(std::vector<int> nums)
+// {
+//    std::vector <int> result;
+//    std::vector <int> front_product;
+//    std::vector <int> back_product;
+//    int product = 1;
+//    int size = nums.size();
+//    for (int i = 0; i < size; i++)
+//    {
+//       product *= nums[i];
+//       front_product.push_back(product);
+//    }
+//    product = 1;
+//    for (int i = size -1 ; i > -1; i--)
+//    {
+//       product *= nums[i];
+//       back_product.push_back(product);
+//    }
+//    result.push_back(back_product[size - 2]);
+//    product = 1;
+//    for (int i = 1 ; i < size - 1; i++)
+//    {
+//       product = front_product[i - 1] * back_product [size - 2 - i];
+//       result.push_back(product);
+//    }
+//    result.push_back(front_product[size - 2]);
+//    return result;
+// }
 
 /****************************************************
             main.cpp & print.cpp
 ****************************************************/
-
 void print(std::vector<int> avect)
 {
     std::cout << "[";
