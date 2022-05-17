@@ -1,4 +1,5 @@
 /******************************************************************
+                     Product except self
 This problem was asked by Uber.
 
 Given an array of integers, return a new array such that each 
@@ -11,7 +12,7 @@ the expected output would be [2, 3, 6].
 
 Follow-up: what if you can't use division?
 
-Hard
+                              Hard
 ******************************************************************/
 
 /****************************************************
