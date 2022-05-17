@@ -2,7 +2,7 @@ NAME	:= daily_code
 CXX		:= c++
 CXXFLAGS:= -Wall -Wextra -Werror -std=c++98
 
-SRCS	:= problem_002.cpp
+SRCS	:= problem_003.cpp
 			
 OBJS	:= $(SRCS:.cpp=.o)
 

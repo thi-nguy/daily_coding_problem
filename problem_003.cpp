@@ -68,3 +68,73 @@
  * 
  * 
 ******************************************************************/
+#include <string>
+#include <iostream>
+
+struct TreeNode
+{
+    int val;
+    TreeNode *left;
+    TreeNode *right;
+    TreeNode(int x): val(x), left(NULL), right(NULL) {}
+};
+
+TreeNode *buildTree()
+{
+    int d;
+    std::cin >> d;
+
+    TreeNode *root;
+    if (d == -1)
+        return NULL;
+    root = new TreeNode(d);
+    root->left = buildTree();
+    root->right = buildTree();
+    return root;
+}
+
+void print(TreeNode *root, int space)
+{
+    int COUNT = 10;
+
+    if (root == NULL)
+        return ;
+    space += COUNT;
+
+    print(root->right, space);
+
+    std::cout << std::endl;
+    for (int i = COUNT; i < space; i++)
+        std::cout << " ";
+    std::cout << root->val << std::endl;
+
+    print(root->left, space);
+}
+
+class Codec
+{
+    public:
+        // Encode a tree to a single string
+        std::string serialize(TreeNode* root)
+        {
+
+
+        }
+
+        // Decode your encoded data to tree
+        TreeNode* deserialize(std::string data)
+        {
+
+        }
+};
+
+int main()
+{
+    Codec ser, deser;
+    TreeNode *root = buildTree();
+    std::cout << "Original tree:\n";
+    print(root, 0);
+    TreeNode* ans = deser.deserialize(ser.serialize(root));
+    std::cout << "Tree after serialize and deserialize (should be the same):\n";
+    print(ans, 0);
+}
